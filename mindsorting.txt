@@ -1,0 +1,69 @@
+mind sorting
+
+get /
+-serve main.html
+MAIN.html
+-just contains links
+
+get /register
+-if logged in redir to redir param or fallback to /
+-if not serve register.html
+REGISTER.html
+-contains registration form
+-js has code that does e.preventDefault to preprocess inputs
+-has fetch api that POSTs to /register with creds
+--on success redirect to either ?redirect=XXX or fallback to /
+--on failure do nothing (for now. TODO check edge cases)
+
+post /register
+-if logged in redir to redir param or fallback to /
+-check userFound
+--if fail send 409
+-check isIllegal
+--if illegal send 422
+-if pass run insertUser on creds and set req.session.user to {id: username}
+
+get /login
+-if logged in redir to redir param or fallback to /
+-if not serve login.html
+LOGIN.html
+-contains login form
+-js has code that does e.preventDefault to preprocess inputs
+-has fetch api that POSTs to /login with creds
+--on success redirect to either ?redirect=XXX or fallback to /
+--on failure do nothing (for now. TODO check edge cases)
+
+post /login
+-check for username/pass existence
+--if fail send 400
+-find usr in db
+--if fail send 401
+-authenticate (check creds against db)
+-if success set req.session.user.id to username
+--status 200
+
+get /profile
+-if not logged in redir to /login?redirect=%2Fprofile
+-if logged in serve profile.html
+PROFILE.html
+-contains a greeting and a logout button POSTing to /logout and on success refreshes the page.
+
+get /info
+-work in progress (meant for / and /profile and /user/:userid)
+
+get /user/:userid
+-checks if user exists
+--if it exists return result of getUserData as json (TODO serve a proper page)
+-if doesn't exist serve usernotfound.html
+
+get /
+-serve main.html
+
+post /logout
+-destroy session on error respond with 500
+
+get /logout
+-if not logged in redir to /
+
+get NOTHING
+-handle 404 pages with serving 404.html

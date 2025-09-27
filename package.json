@@ -1,0 +1,35 @@
+{
+  "name": "secure_weblogin_test",
+  "version": "1.0.0",
+  "description": "Testing an implementation of a secure login in a webpage.",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test dev",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "secure_weblogin_test"
+  },
+  "keywords": [
+    "login",
+    "js",
+    "crypto",
+    "nodejs"
+  ],
+  "author": "@ahmdmoadi",
+  "license": "SEE LICENSE IN LICENSE",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-mysql-session": "^3.0.3",
+    "express-rate-limit": "^8.1.0",
+    "express-session": "^1.18.2",
+    "mysql2": "^3.14.3"
+  }
+}
