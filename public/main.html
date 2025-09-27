@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>PUBLIC</title>
 </head>
 <body>
     <nav>
+        <input type="checkbox" id="nt">
+        <label for="nt" id="ntl">
+            <svg viewBox="0,0,100,100" width="30" height="30">
+                <line x1="10" y1="10" x2="90" y2="90" stroke="white" stroke-width="5" stroke-linecap="round"></line>
+                <line x1="90" y1="10" x2="10" y2="90" stroke="white" stroke-width="5" stroke-linecap="round"></line>
+            </svg>
+        </label>
         <ul>
-            <li><a href="//localhost/">Home</a></li>
-            <li><a href="//localhost/login" target="_blank">Login</a></li>
-            <li><a href="//localhost/register">Register</a></li>
-            <li><a href="//localhost/profile" target="_blank">Profile</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/profile">Profile</a></li>
         </ul>
     </nav>
+    <div id="afternav"></div>
     <script src="js/main.js"></script>
 </body>
 </html>
