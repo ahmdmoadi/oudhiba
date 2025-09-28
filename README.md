@@ -10,3 +10,4 @@ git clone https://github.com/ahmdmoadi/oudhiba.git
 npm install
 npm run dev
 ```
+then go to `http://localhost`
