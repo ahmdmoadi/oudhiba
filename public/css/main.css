@@ -30,25 +30,49 @@ li:nth-child(2n) {
 
 @media (max-width: 600px) {
     nav {
-        box-shadow: 0 0 7px 0px gray inset;
         padding: 7px;
-        position: relative;
+    }
+    nav ul {
+        display: none;
+    }
+    nav.show {
+        background: #000;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        box-shadow: 0 0 7px 0px gray inset;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+    nav.show ul {
+        display: block;
+    }
+    nav.show li {
+        margin-bottom: 4px;
     }
     li a {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    border-radius: 7px;
+        transition: box-shadow 250ms;  
+        height: 48px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        border-radius: 7px;
+        box-shadow: 0 0 4px 1px #5050707f inset;  
     }
     li a:hover {
-        box-shadow: 0 0 5px 1px rgb(178, 174, 166) inset;
+        box-shadow: 0 0 5px 1px #505070ff inset;
+        background: #2020207f;
     }
     #ntl {
-        display: inline-block;
-        padding: 20px;
-        padding-bottom: 10px;
+        display: inline-flex;
+        padding: 7px;
         cursor: pointer;
+        box-shadow: 0 0 2px 0px #fff7;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 10px;
     }
     #ntl line {
         transition: stroke-width 125ms linear, filter 300ms;
@@ -56,5 +80,12 @@ li:nth-child(2n) {
     #ntl:hover line {
         stroke-width: 10px;
         stroke-linecap: round;
+    }
+    main {
+        background: red;
+        padding: 10px 10px;
+    }
+    main * {
+        padding: 10px;
     }
 }

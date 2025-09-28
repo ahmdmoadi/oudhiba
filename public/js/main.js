@@ -5,47 +5,53 @@ const ntl = document.querySelector("#ntl");
 /**@type {NodeListOf<SVGLineElement>} */
 let lines = document.querySelectorAll("nav label line");
 
-const DURATION = 250;
+const DURATION = 200;
 
-nt.addEventListener("change", e=>{
-    if(e.target.checked) {
-        animateLine(lines[0],DURATION,{
-            x1: 10,
-            y1: 33,
-            x2: 90,
-            y2: 33
-        });
-        animateLine(lines[1],DURATION,{
-            x1: 10,
-            y1: 66,
-            x2: 90,
-            y2: 66
-        });
-    } else {
-        animateLine(lines[0],DURATION,{
-            x1: 10,
-            y1: 10,
-            x2: 90,
-            y2: 90
-        });
-        animateLine(lines[1],DURATION,{
-            x1: 10,
-            y1: 90,
-            x2: 90,
-            y2: 10
-        });
+window.onload = changentl;
+
+nt.addEventListener("change", changentl);
+
+let c = 0;
+
+const l1 = {
+    close: {
+        x1: 20,
+        y1: 20,
+        x2: 80,
+        y2: 80
+    },
+    menu: {
+        x1: 10,
+        y1: 33,
+        x2: 90,
+        y2: 33
     }
-});
+}, l2 = {
+    close: {
+        x1: 20,
+        y1: 80,
+        x2: 80,
+        y2: 20
+    },
+    menu: {
+        x1: 10,
+        y1: 66,
+        x2: 90,
+        y2: 66
+    }
+}
 
-// ntl.addEventListener("mouseover", e=>{
-//     lines[0].setAttribute("stroke-width", "7");
-//     lines[1].setAttribute("stroke-width", "7");
-// });
-
-// ntl.addEventListener("mouseover", e=>{
-//     lines[0].setAttribute("stroke-width", "5");
-//     lines[1].setAttribute("stroke-width", "5");
-// });
+function changentl(e) {
+    if(nt.checked) {
+        animateLine(lines[0],DURATION,l1.close);
+        animateLine(lines[1],DURATION,l2.close);
+        document.querySelector("nav").classList.add("show");
+    } else {
+        document.querySelector("nav").classList.remove("show");
+        animateLine(lines[0],DURATION,l1.menu);
+        animateLine(lines[1],DURATION,l2.menu);
+    }
+}
 
 function animateLine(line, duration, toCoords) {
   const from = {

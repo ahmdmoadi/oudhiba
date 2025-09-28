@@ -1,7 +1,7 @@
 {
-  "name": "secure_weblogin_test",
+  "name": "oudhiba",
   "version": "1.0.0",
-  "description": "Testing an implementation of a secure login in a webpage.",
+  "description": "Oud company. A Tribute to my late little sister. may we rejoin her in heaven.",
   "main": "app.js",
   "scripts": {
     "test": "npm test dev",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "secure_weblogin_test"
+    "url": "oudhiba"
   },
   "keywords": [
     "login",
