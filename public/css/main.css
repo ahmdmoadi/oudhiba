@@ -28,7 +28,7 @@ li:nth-child(2n) {
     display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 615px) {
     nav {
         padding: 7px;
     }
