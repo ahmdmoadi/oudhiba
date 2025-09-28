@@ -2,7 +2,7 @@ const {readFileSync} = require("fs");
 
 try {const envfile = readFileSync(".env").toString();
 } catch(e) {
-    console.warn(".env not found! better be in vercel!")
+    // console.warn(".env not found! better be in vercel!")
 }
 const lines = envfile.replace(/\r/g,"").split(/\n/i);
 
