@@ -28,6 +28,16 @@ li:nth-child(2n) {
     display: none;
 }
 
+nav {
+    transition: box-shadow 700ms;
+    position: sticky;
+    top: 0;
+    background: #000;
+    display: inline-block;
+    width: 100%;
+    box-shadow: 0 0 4px 0 black inset;
+}
+
 @media (max-width: 615px) {
     nav {
         padding: 7px;
@@ -36,10 +46,10 @@ li:nth-child(2n) {
         display: none;
     }
     nav.show {
+        position: fixed;
         background: #000;
-        height: 100vh;
+        height: 100%;
         width: 100%;
-        position: absolute;
         box-shadow: 0 0 7px 0px gray inset;
         top: 0;
         left: 0;
