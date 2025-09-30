@@ -79,7 +79,7 @@ const PORT = process.env.SERVER_PORT;
 // ROUTES //
 ////////////
 
-app.get("/status", (req,res)=>{
+app.get("/api/status", (req,res)=>{
     res.json({
         status: "logged"+(!!req.session.user?" in":" out"),
         loggedInUser: !!req.session.user?req.session.user.id:"N/A"
@@ -181,13 +181,21 @@ app.get("/profile", (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "public", "profile.html"))
 });
 
-app.post("/info",new Function());
+app.get('/api/info/:userid', async (req, res) => {
+  const id = req.params.userid;
+  if(await findUser(id)) {
+    let userData = await getUserData(id);
+    res.json(userData);
+  } else {
+    res.sendFile(path.join(__dirname, "public", "usernotfound.html"))
+  }
+});
 
 app.get('/user/:userid', async (req, res) => {
   const id = req.params.userid;
   if(await findUser(id)) {
     let userData = await getUserData(id);
-    res.status(200).send(userData);
+    res.json(userData);
   } else {
     res.sendFile(path.join(__dirname, "public", "usernotfound.html"))
   }

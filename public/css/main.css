@@ -38,12 +38,41 @@ nav {
     box-shadow: 0 0 4px 0 black inset;
 }
 
+nav a h1 {
+    font-family: Century;
+    color: rgb(180, 155, 75);
+    /* filter: drop-shadow(0 0 2px purple); */
+    margin-right: 10px;
+}
+
+nav * {
+    user-select: none;
+}
+
+@media (min-width: 615px) {
+    nav {
+        background: orange;
+    }
+}
 @media (max-width: 615px) {
     nav {
         padding: 7px;
     }
     nav ul {
         display: none;
+    }
+    nav .navtopwrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    nav h1 {
+        display: inline-block;
+        /* position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem; */
     }
     nav.show {
         position: fixed;
@@ -54,6 +83,10 @@ nav {
         top: 0;
         left: 0;
         z-index: 100;
+    }
+    nav.show h1 {
+        /* top: 27px;
+        transform: translate(-50%, 0); */
     }
     nav.show ul {
         display: block;
@@ -70,7 +103,7 @@ nav {
         border-radius: 7px;
         box-shadow: 0 0 4px 1px #5050707f inset;  
     }
-    li a:hover {
+    li a:hover, li a:active {
         box-shadow: 0 0 5px 1px #505070ff inset;
         background: #2020207f;
     }
@@ -92,10 +125,14 @@ nav {
         stroke-linecap: round;
     }
     main {
-        background: red;
+        background: #7b00ff;
         padding: 10px 10px;
     }
     main * {
         padding: 10px;
+    }
+    main::after {
+        display: inline-block;
+        content: 'this only appears on screens smaller than 615px!';
     }
 }

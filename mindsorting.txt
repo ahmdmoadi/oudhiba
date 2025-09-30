@@ -48,7 +48,7 @@ get /profile
 PROFILE.html
 -contains a greeting and a logout button POSTing to /logout and on success refreshes the page.
 
-get /info
+get /api/info/:userid
 -work in progress (meant for / and /profile and /user/:userid)
 
 get /user/:userid
