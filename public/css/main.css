@@ -3,11 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --m-fg: white;
+        --m-bg: black;
+    }
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --m-fg: black;
+        --m-bg: white;
+    }
+}
 body {
     margin: 0;
     padding: 0;
-    --m-fg: #fff;
-    --m-bg: #000;
 }
 a {
     color: var(--m-fg);
@@ -48,12 +58,62 @@ nav a h1 {
 nav * {
     user-select: none;
 }
-
+/* big screens */
 @media (min-width: 615px) {
     nav {
-        background: orange;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 83px;
+        padding: 20px;
+    }
+    .navtopwrap {
+        /* background: aqua; */
+        /* display: inline-block; */
+    }
+    nav li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+    nav a {
+        /* background: red; */
+    }
+    .li i {
+        /* display: none; */
+        color: red;
+    }
+    nav a i.fa-user-circle::before {
+        font-size: 25px;
+        display: inline-block;
+        transform: translateY(3px);
+    }
+    #user-related > li {
+        margin: 0;
+    }
+    #user-related {
+        display: inline-block;
+        border: 1px solid var(--m-fg);
+        border-radius: 25px;
+        /* padding: 13px;
+        padding-right: 0; */
+    }
+    #user-related #nrbtn a {
+        border: 1px solid var(--m-fg);
+        padding: 13px;
+        border-radius: 25px;
+        color: var(--m-bg);
+        background: var(--m-fg);
+    }
+    #user-related #nlbtn a {
+        padding: 13px;
+        border-radius: 25px;
+        border: 1px solid red;
+    }
+    main {
+        background: maroon;
     }
 }
+/* mobile screens */
 @media (max-width: 615px) {
     nav {
         padding: 7px;
@@ -76,7 +136,7 @@ nav * {
     }
     nav.show {
         position: fixed;
-        background: #000;
+        background: var(--m-bg);
         height: 100%;
         width: 100%;
         box-shadow: 0 0 7px 0px gray inset;
